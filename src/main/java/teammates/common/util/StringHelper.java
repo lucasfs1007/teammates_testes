@@ -22,13 +22,21 @@ import teammates.common.exception.InvalidParametersException;
  * Holds String-related helper functions.
  */
 
+
+
 public final class StringHelper {
     private static final Logger log = Logger.getLogger();
 
     private StringHelper() {
         // utility class
     }
-
+    public static String stringVazia(String email) {
+        if (email == null) {
+            return null;
+        } else {
+            return email.trim();
+        }
+    }
     /**
      * Checks whether the input string is empty or equals {@code null}.
      * @param s The string to be checked
@@ -248,6 +256,7 @@ public final class StringHelper {
      *
      * @return the trimmed string or null (if the parameter was null).
      */
+
     public static String trimIfNotNull(String string) {
         return string == null ? null : string.trim();
     }

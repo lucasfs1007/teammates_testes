@@ -60,7 +60,10 @@ public class StringHelperTest extends BaseTestCase {
         ints.add(44);
         assertEquals("1\n44", StringHelper.toString(ints, "\n"));
     }
-
+    @Test
+    public void testaVazio() {
+        assertTrue(StringHelper.stringVazia(""), true);
+    }
     @Test
     public void testKeyEncryption() throws Exception {
         String msg = "Test decryption";

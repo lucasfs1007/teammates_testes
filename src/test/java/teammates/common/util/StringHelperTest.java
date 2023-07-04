@@ -28,7 +28,7 @@ public class StringHelperTest extends BaseTestCase {
     @Test
     public void testGenerateStringOfLength() {
 
-        assertEquals("sssss", StringHelper.generateStringOfLength(5, 's'));
+        assertEquals("ssssss", StringHelper.generateStringOfLength(6, 's'));
         assertEquals("", StringHelper.generateStringOfLength(0, 's'));
     }
 
@@ -62,8 +62,17 @@ public class StringHelperTest extends BaseTestCase {
     }
     @Test
     public void testaVazio() {
-        assertTrue(StringHelper.stringVazia(""), true);
+        assertTrue(StringHelper.stringVazia(""));
     }
+
+    @Test
+    public void testaTamanhoEmail() {
+        assertEquals(11, StringHelper.tamanhoEmail("ssssssss..."));
+        assertEquals(1, StringHelper.tamanhoEmail("s"));
+    }
+
+
+
     @Test
     public void testKeyEncryption() throws Exception {
         String msg = "Test decryption";

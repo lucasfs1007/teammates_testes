@@ -30,12 +30,16 @@ public final class StringHelper {
     private StringHelper() {
         // utility class
     }
-    public static String stringVazia(String email) {
+    public static int tamanhoEmail(String email) {
         if (email == null) {
-            return null;
+            return 0;
         } else {
-            return email.trim();
+            return email.length();
         }
+    }
+
+    public static boolean stringVazia(String email) {
+        return tamanhoEmail(email) == 0;
     }
     /**
      * Checks whether the input string is empty or equals {@code null}.
@@ -270,5 +274,6 @@ public final class StringHelper {
     public static String convertToEmptyStringIfNull(String str) {
         return str == null ? "" : str;
     }
+
 
 }

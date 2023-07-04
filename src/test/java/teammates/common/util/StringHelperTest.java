@@ -92,16 +92,14 @@ public class StringHelperTest extends BaseTestCase {
         assertFalse(StringHelper.verificaNaoComecaComArrobaPonto(null));
     }
 
-/*    @Test
-    public void testaVerificarApenasUmCaractere() {
-        assertTrue(verificaApenasUmCaractere("email@example.com"));
-        assertFalse(verificaApenasUmCaractere("test.test@test.com"));
-        assertFalse(verificaApenasUmCaractere("email@example@com"));
-        assertFalse(verificaApenasUmCaractere(".test@test.com"));
-        assertFalse(verificaApenasUmCaractere(""));
-        assertFalse(verificaApenasUmCaractere(null));
+    @Test
+    public void testaVerificarApenasUmArrobaPonto() {
+        assertTrue(StringHelper.verificaApenasUmArrobaPonto("email@example.com"));
+        assertFalse(StringHelper.verificaApenasUmArrobaPonto("test.test@test.com"));
+        assertFalse(StringHelper.verificaApenasUmArrobaPonto("email@example@com"));
+        assertFalse(StringHelper.verificaApenasUmArrobaPonto(""));
+        assertFalse(StringHelper.verificaApenasUmArrobaPonto(null));
     }
-*/
 
     @Test
     public void testKeyEncryption() throws Exception {

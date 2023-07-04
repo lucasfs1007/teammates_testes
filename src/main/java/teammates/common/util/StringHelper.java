@@ -48,26 +48,26 @@ public final class StringHelper {
             return email.contains("@") && email.contains(".");
         }
     }
-/* public static boolean verificaApenasUmCaractere(String email) {
+    public static boolean verificaApenasUmArrobaPonto(String email) {
         if (email == null || email.isEmpty()) {
             return false;
         } else {
-            boolean possuiArroba = false;
-            boolean possuiPonto = false;
+            int countArroba = 0;
+            int countPonto = 0;
 
             for (int i = 0; i < email.length(); i++) {
                 char c = email.charAt(i);
                 if (c == '@') {
-                    possuiArroba = true;
+                    countArroba++;
                 } else if (c == '.') {
-                    possuiPonto = true;
+                    countPonto++;
                 }
             }
 
-            return possuiArroba && possuiPonto;
+            return countArroba == 0 && countPonto == 1;
         }
     }
-*/
+
 
     public static boolean verificaNaoComecaComArrobaPonto(String email) {
         if (email == null || email.isEmpty()) {

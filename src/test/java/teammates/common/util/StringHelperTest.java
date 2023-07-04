@@ -70,8 +70,38 @@ public class StringHelperTest extends BaseTestCase {
         assertEquals(11, StringHelper.tamanhoEmail("ssssssss..."));
         assertEquals(1, StringHelper.tamanhoEmail("s"));
     }
+    @Test
+    public void testaPossuiCaracteres() {
+        assertTrue(StringHelper.possuiCaracteres("email@example.com"));
+        assertTrue(StringHelper.possuiCaracteres("test@test.com"));
+        assertFalse(StringHelper.possuiCaracteres("email.example.com"));
+        assertFalse(StringHelper.possuiCaracteres("test@test"));
+        assertFalse(StringHelper.possuiCaracteres(""));
+        assertFalse(StringHelper.possuiCaracteres(null));
+    }
 
+    @Test
+    public void testaVerificarInicioNaoArrobaPonto() {
+        assertTrue(StringHelper.verificaNaoComecaComArrobaPonto("email@example.com"));
+        assertTrue(StringHelper.verificaNaoComecaComArrobaPonto("test.test@test.com"));
+        assertFalse(StringHelper.verificaNaoComecaComArrobaPonto("@test.com"));
+        assertFalse(StringHelper.verificaNaoComecaComArrobaPonto(".test@test.com"));
+        assertFalse(StringHelper.verificaNaoComecaComArrobaPonto("@test"));
+        assertFalse(StringHelper.verificaNaoComecaComArrobaPonto(".test"));
+        assertFalse(StringHelper.verificaNaoComecaComArrobaPonto(""));
+        assertFalse(StringHelper.verificaNaoComecaComArrobaPonto(null));
+    }
 
+/*    @Test
+    public void testaVerificarApenasUmCaractere() {
+        assertTrue(verificaApenasUmCaractere("email@example.com"));
+        assertFalse(verificaApenasUmCaractere("test.test@test.com"));
+        assertFalse(verificaApenasUmCaractere("email@example@com"));
+        assertFalse(verificaApenasUmCaractere(".test@test.com"));
+        assertFalse(verificaApenasUmCaractere(""));
+        assertFalse(verificaApenasUmCaractere(null));
+    }
+*/
 
     @Test
     public void testKeyEncryption() throws Exception {
@@ -98,11 +128,11 @@ public class StringHelperTest extends BaseTestCase {
     }
 
     /**
-    * Verifies that encrypting with and without specifying algorithm parameters produce the same ciphertext.
-    * This ensures parameters being specified for encryption are the same as the defaults.
-    *
-    * @param plaintext the plaintext to encrypt, as a hexadecimal string.
-    */
+     * Verifies that encrypting with and without specifying algorithm parameters produce the same ciphertext.
+     * This ensures parameters being specified for encryption are the same as the defaults.
+     *
+     * @param plaintext the plaintext to encrypt, as a hexadecimal string.
+     */
     private static void assertEncryptionUsesExpectedDefaultParams(String plaintext) throws Exception {
         String actualCiphertext = encryptWithoutSpecifyingAlgorithmParams(plaintext);
         String expectedCiphertext = StringHelper.encrypt(plaintext);

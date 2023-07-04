@@ -64,7 +64,7 @@ public final class StringHelper {
                 }
             }
 
-            return countArroba == 0 && countPonto == 1;
+            return countArroba ==1   && countPonto == 1;
         }
     }
 
@@ -77,6 +77,24 @@ public final class StringHelper {
             return firstChar != '@' && firstChar != '.';
         }
     }
+    public static boolean verificaTokenEmail(String email, String token) {
+        if (email == null || token == null) {
+            return false;
+        } else {
+            // Aqui você deve implementar a lógica de verificação do token
+            // comparando-o com o token esperado para o email fornecido.
+            // Neste exemplo, vamos considerar que o token esperado para o email
+            // "example@example.com" é "abc123".
+
+            String expectedToken = "abc123";
+
+            // Verifica se o email fornecido é "example@example.com" e
+            // se o token fornecido é igual ao token esperado "abc123".
+            return email.equals("example@example.com") && token.equals(expectedToken);
+        }
+    }
+
+
 
 
 

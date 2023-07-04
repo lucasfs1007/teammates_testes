@@ -41,10 +41,13 @@ public final class StringHelper {
     public static boolean stringVazia(String email) {
         return tamanhoEmail(email) == 0;
     }
-    /**
-     * Checks whether the input string is empty or equals {@code null}.
-     * @param s The string to be checked
-     */
+    public static boolean possuiCaracteres(String email) {
+        if (email == null) {
+            return false;
+        } else {
+            return email.contains("@") && email.contains(".");
+        }
+    }
     public static boolean isEmpty(String s) {
         return s == null || s.isEmpty();
     }

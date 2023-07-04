@@ -100,6 +100,12 @@ public class StringHelperTest extends BaseTestCase {
         assertFalse(StringHelper.verificaApenasUmArrobaPonto(""));
         assertFalse(StringHelper.verificaApenasUmArrobaPonto(null));
     }
+    @Test
+    public void testaVerificarTokenEmail() {
+        assertTrue(StringHelper.verificaTokenEmail("example@example.com", "abc123"));
+        assertFalse(StringHelper.verificaTokenEmail("example@example.com", "xyz789"));
+        assertFalse(StringHelper.verificaTokenEmail("another@example.com", "abc123"));
+    }
 
     @Test
     public void testKeyEncryption() throws Exception {
